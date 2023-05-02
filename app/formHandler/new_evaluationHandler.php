@@ -13,15 +13,17 @@ $giudizio = $_POST['giudizioPresa'];
 $frequenzaGesti = $_POST['frequenzaGesti'];
 $frequenzaContinua = $_POST['frequenzaContinua'];
 
-$IS = null;
-$CP = 20;
+$IS;
 
-$A = null;
-$B = null;
-$C = null;
-$D = null;
-$E = null;
-$F = null;
+$A;
+$B;
+$C;
+$D;
+$E;
+$F;
+$CP = 23;
+
+
 
 switch ($altezzaTerra) {
     case "0":
@@ -125,7 +127,7 @@ switch ($distanzaAngolare) {
         break;
 }
 
-switch ($distanzaAngolare) {
+switch ($giudizio) {
     case "Buono":
         $E = 1;
         break;
@@ -148,6 +150,7 @@ switch ($frequenzaGesti) {
                 break;
         }
         break;
+
     case "1":
         switch ($frequenzaContinua) {
             case "< 1 ora":
@@ -161,6 +164,7 @@ switch ($frequenzaGesti) {
                 break;
         }
         break;
+
     case "4":
         switch ($frequenzaContinua) {
             case "< 1 ora":
@@ -174,6 +178,7 @@ switch ($frequenzaGesti) {
                 break;
         }
         break;
+
     case "6":
         switch ($frequenzaContinua) {
             case "< 1 ora":
@@ -187,6 +192,7 @@ switch ($frequenzaGesti) {
                 break;
         }
         break;
+
     case "9":
         switch ($frequenzaContinua) {
             case "< 1 ora":
@@ -200,6 +206,7 @@ switch ($frequenzaGesti) {
                 break;
         }
         break;
+
     case "12":
         switch ($frequenzaContinua) {
             case "< 1 ora":
@@ -213,6 +220,7 @@ switch ($frequenzaGesti) {
                 break;
         }
         break;
+
     case ">15":
         switch ($frequenzaContinua) {
             case "< 1 ora":
@@ -228,13 +236,13 @@ switch ($frequenzaGesti) {
         break;
 }
 
+
 $pesoRaccomandato = $CP * $A * $B * $C * $D * $E * $F;
+
 if ($pesoRaccomandato != 0) {
     $IS = $pesoSollevato / $pesoRaccomandato;
-    echo $IS;
 } else {
     $IS = -1;
-    echo $IS;
 }
 
 
