@@ -2,7 +2,8 @@
 
 require('../app/database/connection.php');
 
-$autore = $_SESSION['id_utente'];
+$id_valutazione = $_POST['id_valutazione'];
+$autore = $_POST['id_autore'];
 $ragioneSociale = $_POST['ragioneSociale'];
 $costo = floatval($_POST['costo']);
 $dataEmissione = $_POST['dataEmissione'];
@@ -252,7 +253,7 @@ if ($pesoRaccomandato != 0) {
     }else if($IS >= 1){
         $valutazione = "Rischio";
     }
-    $query = "INSERT INTO valutazioni (autore, ragioneSociale, dataEmissione, costo, pesoSollevato, altezzaTerra, distanzaVerticale, distanzaOrizzontale, dislocazioneAngolare, giudizioPresa, frequenza, durata, pesoRaccomandato, valutazione, indiceSollevamento) VALUES ('$autore', '$ragioneSociale', '$dataEmissione', '$costo', '$pesoSollevato', '$altezzaTerra', '$distanzaVerticale', '$distanzaOrizzontale', '$distanzaAngolare', '$giudizio', '$frequenzaGesti', '$frequenzaContinua', '$pesoRaccomandato', '$valutazione', '$IS')";
+    $query = "UPDATE valutazioni SET id_valutazione='$id_valutazione', autore='$autore', ragioneSociale='$ragioneSociale', costo='$costo', dataEmissione='$dataEmissione', pesoSollevato='$pesoSollevato', altezzaTerra='$altezzaTerra', distanzaVerticale='$distanzaVerticale', distanzaOrizzontale='$distanzaOrizzontale', dislocazioneAngolare='$distanzaAngolare', giudizioPresa='$giudizio', frequenza='$frequenzaGesti', durata='$frequenzaContinua', pesoRaccomandato='$pesoRaccomandato', valutazione='$valutazione', indiceSollevamento='$IS' WHERE id_valutazione='$id_valutazione' ";
     if ($connection->query($query) === TRUE) {
         header("location: home");
       }

@@ -12,9 +12,9 @@ switch ($request) {
         require_once "../app/views/login_page.php";
         break;
 
-    /*case 'signUp':
-        require_once "../app/views/registration_page.php";
-        break;*/
+    case 'nuovoUtente':
+        require_once "../app/views/new_user_page.php";
+        break;
 
     case 'personal_area':
         require_once "../app/views/personal_area_page.php";
@@ -23,18 +23,24 @@ switch ($request) {
     /*case 'change_credentials':
         require_once "../app/views/change_credentials_page.php";
         break;*/
+    case 'elimina':
+        require_once "../app/formHandler/remove.php";
+        break;
 
     case 'nuovaValutazione':
         require_once "../app/views/new_evaluation_page.php";
         break;
 
+    case 'modifica':
+        require_once "../app/views/modify_page.php";
+        break;
     case 'loginHandler':
         require_once "../app/formHandler/login.php";
         break;
 
-    /*case 'signUpHandler':
-        require_once "../app/formHandler/registration.php";
-        break;*/
+    case 'newUserHandler':
+        require_once "../app/formHandler/new_user.php";
+        break;
 
     case 'change_credentialsHandler':
         require_once "../app/formHandler/change_credentials.php";
@@ -44,9 +50,9 @@ switch ($request) {
         require_once "../app/formHandler/logout.php";
         break;
 
-    /*case 'RegistrationHandler':
-        require_once "../app/formHandler/registration.php";
-        break;*/
+    case 'modifyHandler':
+        require_once "../app/formHandler/modifyHandler.php";
+        break;
 
     case 'new_evaluationHandler':
         require_once "../app/formHandler/new_evaluationHandler.php";

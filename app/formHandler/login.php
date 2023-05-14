@@ -4,9 +4,10 @@ require('../app/database/connection.php');
 require('../app/functions.php');
 
 
+
 $utente = $_POST['user'];
 $pwd = $_POST['pwd'];
-$pass = md5($pwd);
+$pass = hash("sha512", $pwd);
 
  $query = "SELECT * FROM user WHERE username='$utente' AND password='$pass'";
  if($result = $connection->query($query)){

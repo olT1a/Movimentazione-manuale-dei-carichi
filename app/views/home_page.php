@@ -1,5 +1,6 @@
 <?php
 require('../app/functions.php');
+require('../app/database/connection.php');
 checkId();
 ?>
 
@@ -19,7 +20,9 @@ checkId();
 <body>
     <nav class="navbar navbar-expand-lg bg-body-tertiary bg-dark" data-bs-theme="dark">
         <div class="container-fluid">
-            <a class="navbar-brand" href="home">Movimentazione manuale dei carichi</a>
+            <a class="navbar-brand" href="home">
+                <?php echo "Benvenuto," . " " . $_SESSION['username']; ?>
+            </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -35,13 +38,17 @@ checkId();
                         echo '<li class="nav-item">
                          <a class="nav-link" href="personal_area">Area personale</a>
                          </li>';
-                         if($_SESSION['ruolo'] == 1){
+                        if ($_SESSION['ruolo'] == 1) {
                             echo '<li class="nav-item">
                             <a class="nav-link" href="nuovaValutazione">Inserisci nuova valutazione</a>
                             </li>';
-                         }
+                            echo '<li class="nav-item">
+                            <a class="nav-link" href="nuovoUtente">Inserisci nuovo utente</a>
+                            </li>';
+                        }
                     }
                     ?>
+
                 </ul>
             </div>
         </div>
@@ -49,8 +56,60 @@ checkId();
 
     <div class='container my-5 text-center'>
         <h1>Valutazioni</h1>
+        <?php
+        echo '<table id="valutazioni" style="width:100%">
+    <tr>
+        <th>ID</th>
+        <th>Autore</th>
+        <th>Ragione sociale</th>
+        <th>Data emissione</th>
+        <th>Costo</th>
+        <th>Peso sollevato</th>
+        <th>Peso raccomandato</th>
+        <th>Indice</th>
+        <th>Valutazione</th>
+        <th> </th>
+        <th> </th>
+    </tr>';
+
+        $query = "SELECT * FROM valutazioni";
+        $rValutazioni = $connection->query($query);
+        if ($rValutazioni->num_rows > 0) {
+            while ($row = $rValutazioni->fetch_assoc()) {
+                if ($_SESSION['ruolo'] == 1) {
+                    echo "<tr>
+            <td>$row[id_valutazione]</td>
+            <td>$row[autore]</td>
+            <td>$row[ragioneSociale]</td>
+            <td>$row[dataEmissione]</td>
+            <td>$row[costo]</td>
+            <td>$row[pesoSollevato]</td>
+            <td>$row[pesoRaccomandato]</td>
+            <td>$row[indiceSollevamento]</td>
+            <td>$row[valutazione]</td>
+            <td><a href='modifica?id=$row[id_valutazione]'>Modifica</a></td>
+            <td><a href='elimina?id=$row[id_valutazione]'>Elimina</a></td>
+            </tr>"; 
+                } else {
+                    echo '<tr>
+                    <td>' . $row['id_valutazione'] . '</td>
+                    <td>' . $row['autore'] . '</td>
+                    <td>' . $row['ragioneSociale'] . '</td>
+                    <td>' . $row['dataEmissione'] . '</td>
+                    <td>' . $row['costo'] . '</td>
+                    <td>' . $row['pesoSollevato'] . '</td>
+                    <td>' . $row['pesoRaccomandato'] . '</td>
+                    <td>' . $row['indiceSollevamento'] . '</td>
+                    <td>' . $row['valutazione'] . '</td>
+                    </tr>';
+                }
+            }
+        }
+        echo '</table>';
+
+        ?>
     </div>
-    
+
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
         integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
         crossorigin="anonymous"></script>
