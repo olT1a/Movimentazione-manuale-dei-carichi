@@ -16,7 +16,6 @@ $giudizio = $_POST['giudizioPresa'];
 $frequenzaGesti = $_POST['frequenzaGesti'];
 $frequenzaContinua = $_POST['frequenzaContinua'];
 
-
 $IS;
 
 $A;
@@ -27,6 +26,7 @@ $E;
 $F;
 $CP = 20;
 $valutazione;
+
 
 
 switch ($altezzaTerra) {
@@ -241,7 +241,9 @@ switch ($frequenzaGesti) {
 }
 
 
+
 $pesoRaccomandato = $CP * $A * $B * $C * $D * $E * $F;
+
 
 if ($pesoRaccomandato != 0) {
     $IS = $pesoSollevato / $pesoRaccomandato;
@@ -252,13 +254,14 @@ if ($pesoRaccomandato != 0) {
     }else if($IS >= 1){
         $valutazione = "Rischio";
     }
-    $query = "INSERT INTO valutazioni (autore, ragioneSociale, dataEmissione, costo, pesoSollevato, altezzaTerra, distanzaVerticale, distanzaOrizzontale, dislocazioneAngolare, giudizioPresa, frequenza, durata, pesoRaccomandato, valutazione, indiceSollevamento) VALUES ('$autore', '$ragioneSociale', '$dataEmissione', '$costo', '$pesoSollevato', '$altezzaTerra', '$distanzaVerticale', '$distanzaOrizzontale', '$distanzaAngolare', '$giudizio', '$frequenzaGesti', '$frequenzaContinua', '$pesoRaccomandato', '$valutazione', '$IS')";
-    if ($connection->query($query) === TRUE) {
-        header("location: home");
-      }
+
 } else {
     $IS = -1;
 }
+$query = "INSERT INTO valutazioni (autore, ragioneSociale, dataEmissione, costo, pesoSollevato, altezzaTerra, distanzaVerticale, distanzaOrizzontale, dislocazioneAngolare, giudizioPresa, frequenza, durata, pesoRaccomandato, valutazione, indiceSollevamento) VALUES ('$autore', '$ragioneSociale', '$dataEmissione', '$costo', '$pesoSollevato', '$altezzaTerra', '$distanzaVerticale', '$distanzaOrizzontale', '$distanzaAngolare', '$giudizio', '$frequenzaGesti', '$frequenzaContinua', '$pesoRaccomandato', '$valutazione', '$IS')";
+if ($connection->query($query) === TRUE) {
+    header("location: home");
+  }
 
 
 ?>

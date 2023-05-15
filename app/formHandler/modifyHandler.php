@@ -1,10 +1,9 @@
 <?php
 
 require('../app/database/connection.php');
+$id = $_POST['id_valutazione'];
 
-$id_valutazione = $_POST['id_valutazione'];
-echo $id_valutazione;
-$autore = $_POST['id_autore'];
+$autore = $_SESSION['id_utente'];
 $ragioneSociale = $_POST['ragioneSociale'];
 $costo = floatval($_POST['costo']);
 $dataEmissione = $_POST['dataEmissione'];
@@ -17,8 +16,6 @@ $distanzaAngolare = $_POST['distanzaAngolare'];
 $giudizio = $_POST['giudizioPresa'];
 $frequenzaGesti = $_POST['frequenzaGesti'];
 $frequenzaContinua = $_POST['frequenzaContinua'];
-
-
 $IS;
 
 $A;
@@ -29,7 +26,6 @@ $E;
 $F;
 $CP = 20;
 $valutazione;
-
 
 switch ($altezzaTerra) {
     case "0":
@@ -242,8 +238,8 @@ switch ($frequenzaGesti) {
         break;
 }
 
-
 $pesoRaccomandato = $CP * $A * $B * $C * $D * $E * $F;
+
 
 if ($pesoRaccomandato != 0) {
     $IS = $pesoSollevato / $pesoRaccomandato;
@@ -254,13 +250,14 @@ if ($pesoRaccomandato != 0) {
     }else if($IS >= 1){
         $valutazione = "Rischio";
     }
-    $query = "UPDATE valutazioni SET id_valutazione='$id_valutazione', autore='$autore', ragioneSociale='$ragioneSociale', costo='$costo', dataEmissione='$dataEmissione', pesoSollevato='$pesoSollevato', altezzaTerra='$altezzaTerra', distanzaVerticale='$distanzaVerticale', distanzaOrizzontale='$distanzaOrizzontale', dislocazioneAngolare='$distanzaAngolare', giudizioPresa='$giudizio', frequenza='$frequenzaGesti', durata='$frequenzaContinua', pesoRaccomandato='$pesoRaccomandato', valutazione='$valutazione', indiceSollevamento='$IS' WHERE id_valutazione='$id_valutazione' ";
-    if ($connection->query($query) === TRUE) {
-        header("location: home");
-      }
+
 } else {
     $IS = -1;
 }
+    $query = "UPDATE valutazioni SET id_valutazione='$id', autore='$autore', ragioneSociale='$ragioneSociale', costo='$costo', dataEmissione='$dataEmissione', pesoSollevato='$pesoSollevato', altezzaTerra='$altezzaTerra', distanzaVerticale='$distanzaVerticale', distanzaOrizzontale='$distanzaOrizzontale', dislocazioneAngolare='$distanzaAngolare', giudizioPresa='$giudizio', frequenza='$frequenzaGesti', durata='$frequenzaContinua', pesoRaccomandato='$pesoRaccomandato', valutazione='$valutazione', indiceSollevamento='$IS' WHERE id_valutazione='$id' ";
+    if ($connection->query($query) === TRUE) {
+        header("location: home");
+  }
 
 
 ?>

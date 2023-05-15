@@ -49,13 +49,13 @@ checkId();
                                     </div>
 
                                     <div class="form-outline form-white mb-3">
-                                        <label>Peso sollevato</label>
+                                        <label>Peso sollevato (Kg) </label>
                                         <input type="text" name="pesoSollevato" placeholder="Peso sollevato"
                                             class="form-control form-control-lg" required />
                                     </div>
 
                                     <div class="form-outline form-white mb-3">
-                                        <label>Altezza da terra delle mani all'inizio del sollevamento</label>
+                                        <label>Altezza da terra delle mani all'inizio del sollevamento (cm) </label>
                                         <select name="altezzaTerra" class="form-control form-control-lg"> //fattore A della
                                             tabella su classroom
                                             <option value="0">0</option>
@@ -71,7 +71,7 @@ checkId();
 
                                     <div class="form-outline form-white mb-3">
                                         <label>Distanza verticale di spostamento del peso fra inizio e fine del
-                                            sollevamento</label>
+                                            sollevamento (cm)</label>
                                         <select name="distanzaVerticale" class="form-control form-control-lg"> //fattore B della
                                             tabella su classroom
                                             <option value="25">25</option>
@@ -87,7 +87,7 @@ checkId();
 
                                     <div class="form-outline form-white mb-3">
                                         <label>Distanza orizzontale tra le mani e il punto di mezzo delle
-                                            caviglie</label>
+                                            caviglie (cm)</label>
                                         <select name="distanzaOrizzontale" class="form-control form-control-lg"> //fattore C della
                                             tabella su classroom
                                             <option value="25">25</option>
@@ -101,7 +101,7 @@ checkId();
                                     </div>
 
                                     <div class="form-outline form-white mb-3">
-                                        <label>Distanza angolare del peso in gradi</label>
+                                        <label>Distanza angolare del peso in gradi (°) </label>
                                         <select name="distanzaAngolare" class="form-control form-control-lg"> //fattore D della
                                             tabella su classroom
                                             <option value="0">0</option>

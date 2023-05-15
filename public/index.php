@@ -22,8 +22,17 @@ switch ($request) {
     case 'elimina':
         require_once "../app/formHandler/remove.php";
         break;
+
     case 'stampa':
         require_once "../app/views/stampa.php";
+        break;
+
+    case 'cerca':
+        require_once "../app/views/cerca.php";
+        break;
+
+    case 'cercaHandler':
+        require_once "../app/formHandler/cercaHandler.php";
         break;
     case 'nuovaValutazione':
         require_once "../app/views/new_evaluation_page.php";
