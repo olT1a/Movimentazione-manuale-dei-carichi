@@ -34,11 +34,6 @@ checkId();
                                     <?php echo "Area personale di" . " " . $_SESSION['username']; ?>
                                 </h2><br>
 
-                                <div class="form-outline form-white mb-4">
-                                    <button class="btn btn-outline-light btn-lg px-5" type="submit"
-                                        onclick="redirect()">Change credentials</button>
-                                    <br><br>
-                                </div>
                                 <a href="LogoutHandler">Logout</a>
                             </div>
 

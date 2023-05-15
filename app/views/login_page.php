@@ -31,8 +31,6 @@
                                     </div>
                                     <button class="btn btn-outline-light btn-lg px-5" type="submit">Login</button>
                                 </form>
-                                <br>
-                                <a href="signUp">Non sei ancora registrato? Registrati</a>
                             </div>
                         </div>
                     </div>

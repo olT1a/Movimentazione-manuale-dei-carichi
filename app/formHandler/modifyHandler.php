@@ -3,6 +3,7 @@
 require('../app/database/connection.php');
 
 $id_valutazione = $_POST['id_valutazione'];
+echo $id_valutazione;
 $autore = $_POST['id_autore'];
 $ragioneSociale = $_POST['ragioneSociale'];
 $costo = floatval($_POST['costo']);
@@ -109,25 +110,25 @@ switch ($distanzaOrizzontale) {
 }
 
 switch ($distanzaAngolare) {
-    case "0°":
+    case "0":
         $D = 1;
         break;
-    case "30°":
+    case "30":
         $D = 0.90;
         break;
-    case "60°":
+    case "60":
         $D = 0.81;
         break;
-    case "90°":
+    case "90":
         $D = 0.71;
         break;
-    case "120°":
+    case "120":
         $D = 0.52;
         break;
-    case "135°":
+    case "135":
         $D = 0.57;
         break;
-    case ">135°":
+    case ">135":
         $D = 0;
         break;
 }

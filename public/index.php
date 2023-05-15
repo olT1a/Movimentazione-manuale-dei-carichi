@@ -2,7 +2,6 @@
 session_start();
 $request = filter_input(INPUT_GET, 'url', FILTER_SANITIZE_SPECIAL_CHARS);
 
-//new_evaluationHandler fa query su database, poi nelle home fare query che mostra i dati del record set
 switch ($request) {
     case 'home':
         require_once "../app/views/home_page.php";
@@ -20,13 +19,12 @@ switch ($request) {
         require_once "../app/views/personal_area_page.php";
         break;
 
-    /*case 'change_credentials':
-        require_once "../app/views/change_credentials_page.php";
-        break;*/
     case 'elimina':
         require_once "../app/formHandler/remove.php";
         break;
-
+    case 'stampa':
+        require_once "../app/views/stampa.php";
+        break;
     case 'nuovaValutazione':
         require_once "../app/views/new_evaluation_page.php";
         break;

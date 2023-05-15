@@ -88,9 +88,10 @@ checkId();
 
                                     <div class="form-outline form-white mb-3">
                                         <label>Altezza da terra delle mani all'inizio del sollevamento</label>
-                                        <select name="altezzaTerra" class="form-control form-control-lg" value="<?php echo $_SESSION['altezzaTerra'] ?>"> //fattore A
+                                        <select name="altezzaTerra" class="form-control form-control-lg"> //fattore A
                                             della
                                             tabella su classroom
+                                            <option value="<?php echo $_SESSION['altezzaTerra'] ?>"><?php echo $_SESSION['altezzaTerra'] ?></option>
                                             <option value="0">0</option>
                                             <option value="25">25</option>
                                             <option value="50">50</option>
@@ -108,6 +109,7 @@ checkId();
                                         <select name="distanzaVerticale" class="form-control form-control-lg" value ="<?php echo $_SESSION['distanzaVerticale'] ?>"> //fattore
                                             B della
                                             tabella su classroom
+                                            <option value ="<?php echo $_SESSION['distanzaVerticale'] ?>"> <?php echo $_SESSION['distanzaVerticale'] ?></option>
                                             <option value="25">25</option>
                                             <option value="30">30</option>
                                             <option value="40">40</option>
@@ -125,6 +127,7 @@ checkId();
                                         <select name="distanzaOrizzontale" class="form-control form-control-lg" value ="<?php echo $_SESSION['distanzaOrizzontale'] ?>">
                                             //fattore C della
                                             tabella su classroom
+                                            <option value ="<?php echo $_SESSION['distanzaOrizzontale'] ?>"> <?php echo $_SESSION['distanzaOrizzontale'] ?> </option>
                                             <option value="25">25</option>
                                             <option value="30">30</option>
                                             <option value="40">40</option>
@@ -140,13 +143,14 @@ checkId();
                                         <select name="distanzaAngolare" class="form-control form-control-lg" value ="<?php echo $_SESSION['dislocazioneAngolare'] ?>" > //fattore
                                             D della
                                             tabella su classroom
-                                            <option value="0°">0°</option>
-                                            <option value="30°">30°</option>
-                                            <option value="60°">60°</option>
-                                            <option value="90°">90°</option>
-                                            <option value="120°">120°</option>
-                                            <option value="135°">135°</option>
-                                            <option value=">135°">>135°</option>
+                                            <option value ="<?php echo $_SESSION['dislocazioneAngolare'] ?>" > <?php echo $_SESSION['dislocazioneAngolare'] ?> </option>
+                                            <option value="0">0</option>
+                                            <option value="30">30</option>
+                                            <option value="60">60</option>
+                                            <option value="90">90</option>
+                                            <option value="120">120</option>
+                                            <option value="135">135</option>
+                                            <option value=">135">>135</option>
                                         </select>
                                     </div>
 
@@ -155,6 +159,7 @@ checkId();
                                         <select name="giudizioPresa" class="form-control form-control-lg" value ="<?php echo $_SESSION['giudizioPresa'] ?>"> //fattore E
                                             della
                                             tabella su classroom
+                                            <option value ="<?php echo $_SESSION['giudizioPresa'] ?>"> <?php echo $_SESSION['giudizioPresa'] ?> </option>
                                             <option value="Buono">Buono</option>
                                             <option value="Scarso">Scarso</option>
                                         </select>
@@ -165,6 +170,7 @@ checkId();
                                         <select name="frequenzaGesti" class="form-control form-control-lg" value ="<?php echo $_SESSION['frequenza'] ?>"> //fattore F
                                             della
                                             tabella su classroom
+                                            <option value ="<?php echo $_SESSION['frequenza'] ?>"> <?php echo $_SESSION['frequenza'] ?> </option>
                                             <option value="0.20">0.20</option>
                                             <option value="1">1</option>
                                             <option value="4">4</option>
@@ -180,6 +186,7 @@ checkId();
                                             F
                                             della
                                             tabella su classroom
+                                            <option value ="<?php echo $_SESSION['durata'] ?>"> <?php echo $_SESSION['durata'] ?> </option>
                                             <option value="< 1 ora">
                                                 < 1 ora </option>
                                             <option value="da 1 a 2 ore">da 1 a 2 ore</option>

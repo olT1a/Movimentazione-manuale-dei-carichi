@@ -104,13 +104,13 @@ checkId();
                                         <label>Distanza angolare del peso in gradi</label>
                                         <select name="distanzaAngolare" class="form-control form-control-lg"> //fattore D della
                                             tabella su classroom
-                                            <option value="0°">0°</option>
-                                            <option value="30°">30°</option>
-                                            <option value="60°">60°</option>
-                                            <option value="90°">90°</option>
-                                            <option value="120°">120°</option>
-                                            <option value="135°">135°</option>
-                                            <option value=">135°">>135°</option>
+                                            <option value="0">0</option>
+                                            <option value="30">30</option>
+                                            <option value="60">60</option>
+                                            <option value="90">90</option>
+                                            <option value="120">120</option>
+                                            <option value="135">135</option>
+                                            <option value=">135">>135</option>
                                         </select>
                                     </div>
 
