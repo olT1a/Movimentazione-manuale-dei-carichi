@@ -71,8 +71,8 @@ checkId();
                                     </div>
 
                                     <div class="form-outline form-white mb-3">
-                                        <label>Costo</label>
-                                        <input type="number" name="costo"
+                                        <label>Costo (€)</label>
+                                        <input type="number" name="costo" min=0
                                             class="form-control form-control-lg" value ="<?php echo $_SESSION['costo'] ?>" required />
                                     </div>
 
@@ -83,13 +83,13 @@ checkId();
                                     </div>
 
                                     <div class="form-outline form-white mb-3">
-                                        <label>Peso sollevato</label>
+                                        <label>Peso sollevato (Kg)</label>
                                         <input type="number" name="pesoSollevato" min=3 max=30
                                             class="form-control form-control-lg" value ="<?php echo $_SESSION['pesoSollevato'] ?>" required />
                                     </div>
 
                                     <div class="form-outline form-white mb-3">
-                                        <label>Altezza da terra delle mani all'inizio del sollevamento</label>
+                                        <label>Altezza da terra delle mani all'inizio del sollevamento (cm)</label>
                                         <select name="altezzaTerra" class="form-control form-control-lg"> //fattore A
                                             della
                                             tabella su classroom
@@ -107,7 +107,7 @@ checkId();
 
                                     <div class="form-outline form-white mb-3">
                                         <label>Distanza verticale di spostamento del peso fra inizio e fine del
-                                            sollevamento</label>
+                                            sollevamento (cm)</label>
                                         <select name="distanzaVerticale" class="form-control form-control-lg" value ="<?php echo $_SESSION['distanzaVerticale'] ?>"> //fattore
                                             B della
                                             tabella su classroom
@@ -125,7 +125,7 @@ checkId();
 
                                     <div class="form-outline form-white mb-3">
                                         <label>Distanza orizzontale tra le mani e il punto di mezzo delle
-                                            caviglie</label>
+                                            caviglie (cm)</label>
                                         <select name="distanzaOrizzontale" class="form-control form-control-lg" value ="<?php echo $_SESSION['distanzaOrizzontale'] ?>">
                                             //fattore C della
                                             tabella su classroom
@@ -141,7 +141,7 @@ checkId();
                                     </div>
 
                                     <div class="form-outline form-white mb-3">
-                                        <label>Distanza angolare del peso in gradi</label>
+                                        <label>Distanza angolare del peso in gradi (°)</label>
                                         <select name="distanzaAngolare" class="form-control form-control-lg" value ="<?php echo $_SESSION['dislocazioneAngolare'] ?>" > //fattore
                                             D della
                                             tabella su classroom
@@ -168,7 +168,7 @@ checkId();
                                     </div>
 
                                     <div class="form-outline form-white mb-3">
-                                        <label>Frequenza dei gesti(numero di atti al minuto)</label>
+                                        <label>Frequenza dei gesti (numero di atti al minuto)</label>
                                         <select name="frequenzaGesti" class="form-control form-control-lg" value ="<?php echo $_SESSION['frequenza'] ?>"> //fattore F
                                             della
                                             tabella su classroom
@@ -233,7 +233,8 @@ checkId();
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
         crossorigin="anonymous"></script>
-        <script src='./js/alert.js'></script>
+    <script src='./js/alert.js'></script>
+
 </body>
 
 </html>

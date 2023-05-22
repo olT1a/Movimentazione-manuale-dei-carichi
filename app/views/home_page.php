@@ -76,7 +76,7 @@ checkId();
         <th>Autore</th>
         <th>Ragione sociale</th>
         <th>Data emissione</th>
-        <th>Costo</th>
+        <th>Costo €</th>
         <th>Peso sollevato Kg</th>
         <th>Peso raccomandato Kg</th>
         <th>Indice</th>
