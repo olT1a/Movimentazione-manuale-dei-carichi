@@ -28,7 +28,7 @@ checkId();
 
                                 <h2 class="fw-bold mb-1">Nuova valutazione</h2>
 
-                                <form method="POST" action="new_evaluationHandler">
+                                <form method="POST" action="new_evaluationHandler" id='new-evaluation-form'>
 
                                     <div class="form-outline form-white mb-3">
                                         <label>Ragione sociale</label>
@@ -50,7 +50,7 @@ checkId();
 
                                     <div class="form-outline form-white mb-3">
                                         <label>Peso sollevato (Kg) </label>
-                                        <input type="number" name="pesoSollevato" min=3 max=30 placeholder=3
+                                        <input type="number" name="pesoSollevato" min=3 max=30 
                                             class="form-control form-control-lg" id="pesoSollevato" required />
                                     </div>
 
