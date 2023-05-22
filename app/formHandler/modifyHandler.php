@@ -16,7 +16,15 @@ $distanzaAngolare = $_POST['distanzaAngolare'];
 $giudizio = $_POST['giudizioPresa'];
 $frequenzaGesti = $_POST['frequenzaGesti'];
 $frequenzaContinua = $_POST['frequenzaContinua'];
+
 $IS;
+
+$unaMano = $_POST['unaMano'];
+$duePersone = $_POST['duePersone'];
+
+
+$unaManoValue;
+$duePersoneValue;
 
 $A;
 $B;
@@ -238,7 +246,23 @@ switch ($frequenzaGesti) {
         break;
 }
 
-$pesoRaccomandato = $CP * $A * $B * $C * $D * $E * $F;
+if(isset($unaMano)){
+    $unaMano = 1;
+    $unaManoValue = 0.6;   
+}else{
+    $unaMano = 0;
+    $unaManoValue = 1;
+}
+
+if(isset($duePersone)){
+    $duePersone = 1;
+    $duePersoneValue = 0.85/2;   
+}else{
+    $duePersone = 0;
+    $duePersoneValue = 1;
+}
+
+$pesoRaccomandato = $CP * $A * $B * $C * $D * $E * $F * $unaManoValue * $duePersoneValue;
 
 
 if ($pesoRaccomandato != 0) {
@@ -253,8 +277,9 @@ if ($pesoRaccomandato != 0) {
 
 } else {
     $IS = -1;
+    $valutazione = "Non valida";
 }
-    $query = "UPDATE valutazioni SET id_valutazione='$id', autore='$autore', ragioneSociale='$ragioneSociale', costo='$costo', dataEmissione='$dataEmissione', pesoSollevato='$pesoSollevato', altezzaTerra='$altezzaTerra', distanzaVerticale='$distanzaVerticale', distanzaOrizzontale='$distanzaOrizzontale', dislocazioneAngolare='$distanzaAngolare', giudizioPresa='$giudizio', frequenza='$frequenzaGesti', durata='$frequenzaContinua', pesoRaccomandato='$pesoRaccomandato', valutazione='$valutazione', indiceSollevamento='$IS' WHERE id_valutazione='$id' ";
+    $query = "UPDATE valutazioni SET id_valutazione='$id', autore='$autore', ragioneSociale='$ragioneSociale', costo='$costo', dataEmissione='$dataEmissione', pesoSollevato='$pesoSollevato', altezzaTerra='$altezzaTerra', distanzaVerticale='$distanzaVerticale', distanzaOrizzontale='$distanzaOrizzontale', dislocazioneAngolare='$distanzaAngolare', giudizioPresa='$giudizio', frequenza='$frequenzaGesti', durata='$frequenzaContinua', pesoRaccomandato='$pesoRaccomandato',unaMano='$unaMano', duePersone='$duePersone', valutazione='$valutazione', indiceSollevamento='$IS' WHERE id_valutazione='$id' ";
     if ($connection->query($query) === TRUE) {
         header("location: home");
   }

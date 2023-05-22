@@ -38,7 +38,7 @@ checkId();
 
                                     <div class="form-outline form-white mb-3">
                                         <label>Costo</label>
-                                        <input type="text" name="costo" placeholder="costo"
+                                        <input type="number" name="costo" 
                                             class="form-control form-control-lg" required />
                                     </div>
 
@@ -50,18 +50,19 @@ checkId();
 
                                     <div class="form-outline form-white mb-3">
                                         <label>Peso sollevato (Kg) </label>
-                                        <input type="text" name="pesoSollevato" placeholder="Peso sollevato"
-                                            class="form-control form-control-lg" required />
+                                        <input type="number" name="pesoSollevato" min=3 max=30 placeholder=3
+                                            class="form-control form-control-lg" id="pesoSollevato" required />
                                     </div>
 
                                     <div class="form-outline form-white mb-3">
                                         <label>Altezza da terra delle mani all'inizio del sollevamento (cm) </label>
-                                        <select name="altezzaTerra" class="form-control form-control-lg"> //fattore A della
+                                        <select name="altezzaTerra" class="form-control form-control-lg"> //fattore A
+                                            della
                                             tabella su classroom
                                             <option value="0">0</option>
                                             <option value="25">25</option>
                                             <option value="50">50</option>
-                                            <option value ="75">75</option>
+                                            <option value="75">75</option>
                                             <option value="100">100</option>
                                             <option value="125">125</option>
                                             <option value="150">150</option>
@@ -72,7 +73,8 @@ checkId();
                                     <div class="form-outline form-white mb-3">
                                         <label>Distanza verticale di spostamento del peso fra inizio e fine del
                                             sollevamento (cm)</label>
-                                        <select name="distanzaVerticale" class="form-control form-control-lg"> //fattore B della
+                                        <select name="distanzaVerticale" class="form-control form-control-lg"> //fattore
+                                            B della
                                             tabella su classroom
                                             <option value="25">25</option>
                                             <option value="30">30</option>
@@ -88,7 +90,8 @@ checkId();
                                     <div class="form-outline form-white mb-3">
                                         <label>Distanza orizzontale tra le mani e il punto di mezzo delle
                                             caviglie (cm)</label>
-                                        <select name="distanzaOrizzontale" class="form-control form-control-lg"> //fattore C della
+                                        <select name="distanzaOrizzontale" class="form-control form-control-lg">
+                                            //fattore C della
                                             tabella su classroom
                                             <option value="25">25</option>
                                             <option value="30">30</option>
@@ -102,7 +105,8 @@ checkId();
 
                                     <div class="form-outline form-white mb-3">
                                         <label>Distanza angolare del peso in gradi (°) </label>
-                                        <select name="distanzaAngolare" class="form-control form-control-lg"> //fattore D della
+                                        <select name="distanzaAngolare" class="form-control form-control-lg"> //fattore
+                                            D della
                                             tabella su classroom
                                             <option value="0">0</option>
                                             <option value="30">30</option>
@@ -116,7 +120,8 @@ checkId();
 
                                     <div class="form-outline form-white mb-3">
                                         <label>Giudizio sulla presa del carico</label>
-                                        <select name="giudizioPresa" class="form-control form-control-lg"> //fattore E della
+                                        <select name="giudizioPresa" class="form-control form-control-lg"> //fattore E
+                                            della
                                             tabella su classroom
                                             <option value="Buono">Buono</option>
                                             <option value="Scarso">Scarso</option>
@@ -125,7 +130,8 @@ checkId();
 
                                     <div class="form-outline form-white mb-3">
                                         <label>Frequenza dei gesti(numero di atti al minuto)</label>
-                                        <select name="frequenzaGesti" class="form-control form-control-lg"> //fattore F della
+                                        <select name="frequenzaGesti" class="form-control form-control-lg"> //fattore F
+                                            della
                                             tabella su classroom
                                             <option value="0.20">0.20</option>
                                             <option value="1">1</option>
@@ -138,13 +144,24 @@ checkId();
                                     </div>
 
                                     <div class="form-outline form-white mb-1">
-                                        <select name="frequenzaContinua" class="form-control form-control-lg"> //fattore F
+                                        <select name="frequenzaContinua" class="form-control form-control-lg"> //fattore
+                                            F
                                             della
                                             tabella su classroom
-                                            <option value="< 1 ora">< 1 ora </option>
+                                            <option value="< 1 ora">
+                                                < 1 ora </option>
                                             <option value="da 1 a 2 ore">da 1 a 2 ore</option>
                                             <option value="da 2 a 8 ore">da 2 a 8 ore</option>
                                         </select>
+                                    </div>
+
+                                    <div class="form-outline form-white mb-1">
+                                        <label>Sollevamento con una mano?</label>
+                                        <input type="checkbox" name="unaMano">
+                                    </div>
+                                    <div class="form-outline form-white mb-1">
+                                        <label>Sollevamento fatto da due persone?</label>
+                                        <input type="checkbox" name="duePersone">
                                     </div>
                                     <br>
                                     <button class="btn btn-outline-light btn-lg px-5" type="submit">Inserisci</button>
@@ -163,6 +180,7 @@ checkId();
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
         crossorigin="anonymous"></script>
+    <script src='./js/alert.js'></script>
 </body>
 
 </html>

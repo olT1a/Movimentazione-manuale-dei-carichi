@@ -16,7 +16,14 @@ $giudizio = $_POST['giudizioPresa'];
 $frequenzaGesti = $_POST['frequenzaGesti'];
 $frequenzaContinua = $_POST['frequenzaContinua'];
 
+$unaMano = $_POST['unaMano'];
+$duePersone = $_POST['duePersone'];
+
+
 $IS;
+
+$unaManoValue;
+$duePersoneValue;
 
 $A;
 $B;
@@ -240,9 +247,23 @@ switch ($frequenzaGesti) {
         break;
 }
 
+if(isset($unaMano)){
+    $unaMano = 1;
+    $unaManoValue = 0.6;   
+}else{
+    $unaMano = 0;
+    $unaManoValue = 1;
+}
 
+if(isset($duePersone)){
+    $duePersone = 1;
+    $duePersoneValue = 0.85/2;   
+}else{
+    $duePersone = 0;
+    $duePersoneValue = 1;
+}
 
-$pesoRaccomandato = $CP * $A * $B * $C * $D * $E * $F;
+$pesoRaccomandato = $CP * $A * $B * $C * $D * $E * $F * $unaManoValue * $duePersoneValue;
 
 
 if ($pesoRaccomandato != 0) {
@@ -257,8 +278,9 @@ if ($pesoRaccomandato != 0) {
 
 } else {
     $IS = -1;
+    $valutazione = "Non accettabile";
 }
-$query = "INSERT INTO valutazioni (autore, ragioneSociale, dataEmissione, costo, pesoSollevato, altezzaTerra, distanzaVerticale, distanzaOrizzontale, dislocazioneAngolare, giudizioPresa, frequenza, durata, pesoRaccomandato, valutazione, indiceSollevamento) VALUES ('$autore', '$ragioneSociale', '$dataEmissione', '$costo', '$pesoSollevato', '$altezzaTerra', '$distanzaVerticale', '$distanzaOrizzontale', '$distanzaAngolare', '$giudizio', '$frequenzaGesti', '$frequenzaContinua', '$pesoRaccomandato', '$valutazione', '$IS')";
+$query = "INSERT INTO valutazioni (autore, ragioneSociale, dataEmissione, costo, pesoSollevato, altezzaTerra, distanzaVerticale, distanzaOrizzontale, dislocazioneAngolare, giudizioPresa, frequenza, durata, pesoRaccomandato, unaMano, duePersone, valutazione, indiceSollevamento) VALUES ('$autore', '$ragioneSociale', '$dataEmissione', '$costo', '$pesoSollevato', '$altezzaTerra', '$distanzaVerticale', '$distanzaOrizzontale', '$distanzaAngolare', '$giudizio', '$frequenzaGesti', '$frequenzaContinua', '$pesoRaccomandato', '$unaMano', '$duePersone', '$valutazione', '$IS')";
 if ($connection->query($query) === TRUE) {
     header("location: home");
   }

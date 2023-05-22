@@ -50,6 +50,8 @@ checkId();
                                         $_SESSION['giudizioPresa'] = $row['giudizioPresa'];
                                         $_SESSION['frequenza'] = $row['frequenza'];
                                         $_SESSION['durata'] = $row['durata'];
+                                        $_SESSION['unaMano'] = $row['unaMano'];
+                                        $_SESSION['duePersone'] = $row['duePersone'];
                                         /*$_SESSION['pesoRaccomandato'] = $row['pesoRaccomandato'];
                                         $_SESSION['valutazione'] = $row['valutazione'];
                                         $_SESSION['indiceSollevamento'] = $row['indiceSollevamento'];*/
@@ -70,7 +72,7 @@ checkId();
 
                                     <div class="form-outline form-white mb-3">
                                         <label>Costo</label>
-                                        <input type="text" name="costo" placeholder="costo"
+                                        <input type="number" name="costo"
                                             class="form-control form-control-lg" value ="<?php echo $_SESSION['costo'] ?>" required />
                                     </div>
 
@@ -82,7 +84,7 @@ checkId();
 
                                     <div class="form-outline form-white mb-3">
                                         <label>Peso sollevato</label>
-                                        <input type="text" name="pesoSollevato" placeholder="Peso sollevato"
+                                        <input type="number" name="pesoSollevato"
                                             class="form-control form-control-lg" value ="<?php echo $_SESSION['pesoSollevato'] ?>" required />
                                     </div>
 
@@ -192,6 +194,27 @@ checkId();
                                             <option value="da 1 a 2 ore">da 1 a 2 ore</option>
                                             <option value="da 2 a 8 ore">da 2 a 8 ore</option>
                                         </select>
+                                    </div>
+                                    <div class="form-outline form-white mb-1">
+                                        <label>Sollevamento con una mano?</label>
+                                        <?php
+                                            if($_SESSION['unaMano'] == 1){
+                                                echo "<input type='checkbox' name='unaMano' checked=on>";        
+                                            }else{
+                                                echo "<input type='checkbox' name='unaMano'>";
+                                            }
+                                        ?>
+                                        
+                                    </div>
+                                    <div class="form-outline form-white mb-1">
+                                        <label>Sollevamento fatto da due persone?</label>
+                                        <?php
+                                            if($_SESSION['duePersone'] == 1){
+                                                echo "<input type='checkbox' name='duePersone' checked=on>";        
+                                            }else{
+                                                echo "<input type='checkbox' name='duePersone'>";
+                                            }
+                                        ?>
                                     </div>
                                     <br>
                                     <button class="btn btn-outline-light btn-lg px-5" type="submit">modifica</button>

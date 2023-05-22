@@ -29,8 +29,11 @@ $query = "SELECT * FROM valutazioni WHERE id_valutazione='$id' ";
         $frequenza = $row['frequenza'];
         $durata = $row['durata'];
         $pesoRaccomandato = $row['pesoRaccomandato'];
+        $unaMano = $row['unaMano'];
+        $duePersone = $row['duePersone'];
         $valutazione = $row['valutazione'];
         $indiceSollevamento = $row['indiceSollevamento'];
+
 
         $pdf->Cell(190,10,"Ragione sociale: $ragioneSociale",1,1,'C');
         $pdf->Ln();
@@ -60,10 +63,40 @@ $query = "SELECT * FROM valutazioni WHERE id_valutazione='$id' ";
         $pdf->Ln();
         $pdf->Cell(40,10,"Peso raccomandato: $pesoRaccomandato Kg");
         $pdf->Ln();
+        
+        if($unaMano == 1){
+            $pdf->Cell(40,10,"Sollevamento con una mano?: Si");
+            $pdf->Ln();
+        } else{
+            $pdf->Cell(40,10,"Sollevamento con una mano?: No");
+            $pdf->Ln();
+        }
+
+        if($duePersone == 1){
+            $pdf->Cell(40,10,"Sollevamento fatto da due persone?: Si");
+            $pdf->Ln();
+        } else{
+            $pdf->Cell(40,10,"Sollevamento fatto da due persone?: No");
+            $pdf->Ln();
+        }
+
         $pdf->Cell(40,10,"Indice di sollevamento: $indiceSollevamento");
         $pdf->Ln();
-        $pdf->Cell(40,10,"Valutazione: $valutazione");
-        $pdf->Ln();
+        
+        if($valutazione == "Accettabile"){
+            $pdf->Cell(40,10,"Valutazione: $valutazione, non e' necessario nessun provvedimento.");
+            $pdf->Ln();
+        }else if($valutazione == "Non accettabile"){
+            $pdf->Cell(40,10,"Valutazione: $valutazione, bisogna riprogettare la postazione lavorativa e le attività di lavoro.");
+            $pdf->Ln();
+        } else if($valutazione == "Rischio"){
+            $pdf->Cell(40,10,"Valutazione: $valutazione, e' necessario attuare interventi di prevenzione.");
+            $pdf->Ln();
+        }else if($valutazione == "Livello di attenzione"){
+            $pdf->Cell(40,10,"Valutazione: $valutazione, e' necessario attivare la sorveglianza sanitaria e la formazione e informazione del personale.");
+            $pdf->Ln();
+        }
+
         }
     }
 $pdf->Output();

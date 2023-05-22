@@ -16,3 +16,22 @@
     color: #ffffff;
 
 }
+
+#valutazioni {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+#valutazioni td,
+#valutazioni th {
+    padding: 13px 16px;
+    border: 1px solid #ddd;
+    text-align: center;
+    font-size: 16px;
+}
+
+#valutazioni th {
+    background-color: darkslateblue;
+    color: #ffffff;
+
+}

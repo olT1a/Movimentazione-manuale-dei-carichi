@@ -1,3 +1,3 @@
 function redirect() {
-    window.location.href="change_credentials";  
+    window.location.href="home";  
   }
